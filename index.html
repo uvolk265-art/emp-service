@@ -3,474 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMP Service | Ремонт и обслуживание автомобилей в Челябинске</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>EMP Service | Автосервис в Челябинске</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-        body {
-            background-color: #f9fafc;
-            color: #1a1e24;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .header {
-            background: #1e1f22;
-            color: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo span {
-            color: #ff7b00;
-        }
-        .logo i {
-            font-size: 2rem;
-            font-style: normal;
-        }
-        .nav {
-            display: flex;
-            gap: 30px;
-            font-weight: 500;
-        }
-        .nav a {
-            color: #e0e0e0;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-        .nav a:hover {
-            color: #ff7b00;
-        }
-        .phone {
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .phone a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .phone a:hover {
-            color: #ff7b00;
-        }
-        .btn {
-            display: inline-block;
-            background: #ff7b00;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
-        }
-        .btn:hover {
-            background: #e66a00;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 123, 0, 0.4);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #ff7b00;
-            color: #ff7b00;
-            box-shadow: none;
-        }
-        .btn-outline:hover {
-            background: #ff7b00;
-            color: white;
-        }
-        .hero {
-            background: linear-gradient(135deg, #1e1f22 0%, #2a2c30 100%);
-            color: white;
-            padding: 70px 0 90px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::after {
-            content: "🔧";
-            position: absolute;
-            right: -5%;
-            bottom: -20%;
-            font-size: 25rem;
-            opacity: 0.03;
-            transform: rotate(15deg);
-            pointer-events: none;
-        }
-        .hero-grid {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .hero-text {
-            flex: 1 1 500px;
-        }
-        .hero-text h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-        .hero-text h1 span {
-            color: #ff7b00;
-            display: inline-block;
-        }
-        .hero-text p {
-            font-size: 1.15rem;
-            opacity: 0.85;
-            margin-bottom: 30px;
-            max-width: 550px;
-        }
-        .hero-actions {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .hero-image {
-            flex: 1 1 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 30px;
-            padding: 30px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-        .hero-image .emoji-car {
-            font-size: 8rem;
-            line-height: 1;
-            filter: drop-shadow(0 10px 20px rgba(255, 123, 0, 0.3));
-        }
-        .hero-image p {
-            margin-top: 15px;
-            font-weight: 500;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-        .features {
-            padding: 70px 0;
-            background: #ffffff;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: #1e1f22;
-        }
-        .section-subtitle {
-            text-align: center;
-            color: #6b7280;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            font-size: 1.1rem;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
-        .feature-card {
-            background: #f9fafc;
-            padding: 30px 25px;
-            border-radius: 24px;
-            transition: all 0.3s;
-            border: 1px solid #eef0f3;
-            text-align: center;
-        }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
-            border-color: #ff7b00;
-        }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: inline-block;
-            background: rgba(255, 123, 0, 0.1);
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            border-radius: 50%;
-        }
-        .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .feature-card p {
-            color: #6b7280;
-            font-size: 0.95rem;
-        }
-        .services {
-            padding: 70px 0;
-            background: #f1f3f6;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .service-card {
-            background: white;
-            border-radius: 24px;
-            padding: 30px 25px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s;
-            border: 1px solid white;
-        }
-        .service-card:hover {
-            border-color: #ff7b00;
-            box-shadow: 0 20px 30px -8px rgba(255, 123, 0, 0.15);
-            transform: scale(1.02);
-        }
-        .service-card .icon {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            display: inline-block;
-            background: #fff2e6;
-            padding: 10px;
-            border-radius: 16px;
-        }
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-        .service-card p {
-            color: #6b7280;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-        .service-price {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #ff7b00;
-        }
-        .booking {
-            padding: 70px 0;
-            background: white;
-        }
-        .booking-wrapper {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            align-items: flex-start;
-        }
-        .booking-info {
-            flex: 1 1 350px;
-        }
-        .booking-info h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-        .booking-info p {
-            color: #6b7280;
-            margin-bottom: 30px;
-            font-size: 1.05rem;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .contact-item .icon {
-            font-size: 1.8rem;
-            background: #fff2e6;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 20px;
-            color: #ff7b00;
-        }
-        .contact-item .text {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        .contact-item .text small {
-            display: block;
-            font-weight: 400;
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-        .booking-form {
-            flex: 1 1 450px;
-            background: #f9fafc;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #1e1f22;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 15px 18px;
-            border: 1.5px solid #e2e6ec;
-            border-radius: 16px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: white;
-        }
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: #ff7b00;
-            box-shadow: 0 0 0 4px rgba(255, 123, 0, 0.1);
-        }
-        .form-group button {
-            width: 100%;
-            padding: 16px;
-            font-size: 1.1rem;
-        }
-        .reviews {
-            padding: 70px 0;
-            background: #f1f3f6;
-        }
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .review-card {
-            background: white;
-            border-radius: 24px;
-            padding: 30px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
-        }
-        .review-stars {
-            color: #ffb300;
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-        .review-text {
-            color: #374151;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            background: #ff7b00;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        .review-author .name {
-            font-weight: 700;
-        }
-        .review-author .car {
-            color: #6b7280;
-            font-size: 0.85rem;
-        }
-        .footer {
-            background: #1e1f22;
-            color: #b0b3b8;
-            padding: 50px 0 30px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .footer h4 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        .footer a {
-            color: #b0b3b8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            transition: color 0.3s;
-        }
-        .footer a:hover {
-            color: #ff7b00;
-        }
-        .footer-bottom {
-            border-top: 1px solid #2f3136;
-            padding-top: 30px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        @media (max-width: 992px) {
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero-grid { flex-direction: column; text-align: center; }
-            .hero-text p { margin-left: auto; margin-right: auto; }
-            .hero-actions { justify-content: center; }
-            .booking-wrapper { flex-direction: column; }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: #f9fafc; color: #1a1e24; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .header { background: #1e1f22; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logo { font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: #ff7b00; }
+        .nav { display: flex; gap: 30px; }
+        .nav a { color: #e0e0e0; text-decoration: none; transition: 0.3s; font-size: 0.95rem; }
+        .nav a:hover { color: #ff7b00; }
+        .phone { font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .phone a { color: white; text-decoration: none; }
+        
+        .btn { display: inline-block; background: #ff7b00; color: white; padding: 12px 28px; border-radius: 40px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; }
+        .btn:hover { background: #e66a00; }
+        .btn-outline { background: transparent; border: 2px solid #ff7b00; color: #ff7b00; }
+        
+        .hero { background: #1e1f22; color: white; padding: 70px 0; }
+        .hero-grid { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .hero-text h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .hero-text h1 span { color: #ff7b00; }
+        .hero-text p { font-size: 1.15rem; margin-bottom: 30px; }
+        .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+        .hero-image { background: rgba(255, 255, 255, 0.05); border-radius: 30px; padding: 30px; text-align: center; flex: 1 1 300px; }
+        .hero-image .emoji-car { font-size: 8rem; }
+        
+        .section-title { text-align: center; font-size: 2.4rem; font-weight: 800; margin-bottom: 10px; margin-top: 40px; }
+        .section-subtitle { text-align: center; color: #6b7280; margin-bottom: 40px; }
+        
+        .features-grid, .services-grid, .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .feature-card, .service-card, .review-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .feature-icon, .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .service-price { font-weight: 700; font-size: 1.3rem; color: #ff7b00; margin-top: 15px; }
+        
+        .booking-wrapper { display: flex; gap: 40px; flex-wrap: wrap; background: white; padding: 40px; border-radius: 20px; margin-bottom: 50px; }
+        .booking-info { flex: 1 1 300px; }
+        .booking-info h2 { font-size: 2rem; margin-bottom: 20px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .contact-item .icon { font-size: 1.5rem; background: #fff2e6; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 15px; margin-bottom: 0; }
+        .contact-item .text small { display: block; color: #6b7280; font-weight: 400; }
+        
+        .booking-form { flex: 1 1 300px; background: #f9fafc; padding: 30px; border-radius: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 10px; font-size: 1rem; }
+        .form-group button { width: 100%; padding: 15px; font-size: 1.1rem; }
+        
+        .review-stars { color: #ffb300; font-size: 1.3rem; margin-bottom: 10px; }
+        .review-text { font-style: italic; margin-bottom: 15px; color: #374151; }
+        .review-author { display: flex; align-items: center; gap: 10px; }
+        .review-avatar { width: 40px; height: 40px; background: #ff7b00; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        
+        .footer { background: #1e1f22; color: #b0b3b8; padding: 40px 0 20px; text-align: center; }
+        .footer a { color: #b0b3b8; text-decoration: none; display: block; margin-bottom: 10px; }
+        .footer a:hover { color: #ff7b00; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; text-align: left; }
+        .footer h4 { color: white; margin-bottom: 15px; }
+        
         @media (max-width: 768px) {
-            .header-content { flex-direction: column; align-items: stretch; text-align: center; }
-            .nav { justify-content: center; flex-wrap: wrap; gap: 15px; }
-            .phone { justify-content: center; }
             .hero-text h1 { font-size: 2rem; }
-            .section-title { font-size: 1.9rem; }
-            .booking-form { padding: 25px; }
-        }
-        @media (max-width: 480px) {
-            .hero-actions .btn { width: 100%; text-align: center; }
-            .phone { flex-direction: column; }
+            .header-content { flex-direction: column; text-align: center; }
+            .nav { justify-content: center; flex-wrap: wrap; }
+            .hero-grid { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -478,18 +77,14 @@
 
     <header class="header">
         <div class="container header-content">
-            <div class="logo">
-                <i>🔧</i> EMP <span>Service</span>
-            </div>
+            <div class="logo"><i>🔧</i> EMP <span>Service</span></div>
             <nav class="nav">
                 <a href="#services">Услуги</a>
                 <a href="#features">Преимущества</a>
                 <a href="#reviews">Отзывы</a>
                 <a href="#booking">Контакты</a>
             </nav>
-            <div class="phone">
-                📞 <a href="tel:+79084936128">+7 (908) 493-61-28</a>
-            </div>
+            <div class="phone">📞 <a href="tel:+79084936128">+7 (908) 493-61-28</a></div>
         </div>
     </header>
 
@@ -512,25 +107,25 @@
 
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title fade-in">Почему выбирают нас</h2>
-            <p class="section-subtitle fade-in">Мы заботимся о вашем автомобиле так же, как о своём</p>
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <p class="section-subtitle">Мы заботимся о вашем автомобиле так же, как о своём</p>
             <div class="features-grid">
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🛠️</div>
                     <h3>Опытные мастера</h3>
                     <p>Специалисты с опытом работы от 8 лет, регулярно проходят обучение и повышают квалификацию.</p>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>Быстрый ремонт</h3>
                     <p>Большинство работ выполняем в день обращения. Точное соблюдение сроков — наш принцип.</p>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">🔍</div>
                     <h3>Честная диагностика</h3>
                     <p>Используем современное оборудование и называем реальные причины неисправностей.</p>
                 </div>
-                <div class="feature-card fade-in">
+                <div class="feature-card">
                     <div class="feature-icon">✅</div>
                     <h3>Гарантия качества</h3>
                     <p>Предоставляем гарантию до 2 лет на все виды выполненных работ и установленные запчасти.</p>
@@ -541,40 +136,40 @@
 
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title fade-in">Наши услуги</h2>
-            <p class="section-subtitle fade-in">Полный спектр работ по ремонту и обслуживанию автомобилей</p>
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-subtitle">Полный спектр работ по ремонту и обслуживанию автомобилей</p>
             <div class="services-grid">
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <div class="icon">🔧</div>
                     <h3>Компьютерная диагностика</h3>
                     <p>Полная диагностика всех систем автомобиля с использованием современного оборудования.</p>
                     <div class="service-price">от 1 500 ₽</div>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <div class="icon">🛢️</div>
                     <h3>Замена масла</h3>
                     <p>Быстрая замена моторного масла и фильтров. Работа занимает не более 30 минут.</p>
                     <div class="service-price">от 800 ₽</div>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <div class="icon">⚙️</div>
                     <h3>Ремонт двигателя</h3>
                     <p>Капитальный и текущий ремонт двигателей любой сложности с гарантией.</p>
                     <div class="service-price">от 5 000 ₽</div>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <div class="icon">🛑</div>
                     <h3>Тормозная система</h3>
                     <p>Замена тормозных колодок, дисков, прокачка тормозов и ремонт суппортов.</p>
                     <div class="service-price">от 1 200 ₽</div>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <div class="icon">🔋</div>
                     <h3>Электрика и АКБ</h3>
                     <p>Ремонт электрооборудования, замена аккумуляторов, поиск и устранение неисправностей.</p>
                     <div class="service-price">от 1 000 ₽</div>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <div class="icon">❄️</div>
                     <h3>Кондиционеры</h3>
                     <p>Заправка, ремонт и обслуживание автомобильных кондиционеров.</p>
@@ -585,27 +180,117 @@
     </section>
 
     <section class="booking" id="booking">
-        <div class="container booking-wrapper">
-            <div class="booking-info">
-                <h2 class="fade-in">Запишитесь на сервис</h2>
-                <p class="fade-in">Оставьте заявку, и мы перезвоним в течение 15 минут для подтверждения записи.</p>
-                <div class="contact-item fade-in">
-                    <div class="icon">📞</div>
-                    <div class="text">+7 (908) 493-61-28<small>Ежедневно с 9:00 до 21:00</small></div>
+        <div class="container">
+            <h2 class="section-title">Запишитесь на сервис</h2>
+            <p class="section-subtitle">Оставьте заявку, и мы перезвоним в течение 15 минут</p>
+            <div class="booking-wrapper">
+                <div class="booking-info">
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <div class="text">+7 (908) 493-61-28<small>Ежедневно с 9:00 до 21:00</small></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <div class="text">г. Челябинск, ул. Монтажников, 8/5<small>Бесплатная парковка</small></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">✉️</div>
+                        <div class="text">info@autoservice.ru<small>Ответим в течение часа</small></div>
+                    </div>
                 </div>
-                <div class="contact-item fade-in">
-                    <div class="icon">📍</div>
-                    <div class="text">г. Челябинск, ул. Монтажников, 8/5<small>Бесплатная парковка</small></div>
+                <form class="booking-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка принята.'); this.reset();">
+                    <div class="form-group">
+                        <label>Ваше имя *</label>
+                        <input type="text" placeholder="Иван Иванов" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Телефон *</label>
+                        <input type="tel" placeholder="+7 (999) 123-45-67" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Услуга</label>
+                        <select>
+                            <option>Компьютерная диагностика</option>
+                            <option>Замена масла</option>
+                            <option>Ремонт двигателя</option>
+                            <option>Тормозная система</option>
+                            <option>Электрика и АКБ</option>
+                            <option>Кондиционеры</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">Отправить заявку</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <p class="section-subtitle">Что говорят о нас наши клиенты</p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">«Отличный сервис! Приехал с проблемой в двигателе, диагностировали быстро и честно назвали причину. Отремонтировали за день, дали гарантию. Рекомендую!»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">А</div>
+                        <div>
+                            <div class="name">Алексей М.</div>
+                            <div class="car">Toyota Camry</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item fade-in">
-                    <div class="icon">✉️</div>
-                    <div class="text">info@autoservice.ru<small>Ответим в течение часа</small></div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">«Очень удобно, что можно записаться онлайн. Приехала на замену масла, всё сделали быстро и качественно. Приятные цены и вежливый персонал.»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">Е</div>
+                        <div>
+                            <div class="name">Елена К.</div>
+                            <div class="car">Kia Rio</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">«Обслуживаюсь здесь уже третий год. Всегда честно говорят, что нужно делать, а что можно отложить. Ни разу не подвели. Лучший сервис в районе!»</p>
+                    <div class="review-author">
+                        <div class="review-avatar">Д</div>
+                        <div>
+                            <div class="name">Дмитрий С.</div>
+                            <div class="car">BMW X5</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <form class="booking-form fade-in" id="bookingForm">
-                <div class="form-group">
-                    <label for="name">Ваше имя *</label>
-                    <input type="text" id="name" placeholder="Иван Иванов" required>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="color: white; margin-bottom: 15px;"><i>🔧</i> EMP <span>Service</span></div>
+                    <p>Профессиональный ремонт и обслуживание автомобилей всех марок в Челябинске.</p>
                 </div>
-                <div class="form-group">
-          
+                <div>
+                    <h4>Услуги</h4>
+                    <a href="#services">Диагностика</a>
+                    <a href="#services">Замена масла</a>
+                    <a href="#services">Ремонт двигателя</a>
+                </div>
+                <div>
+                    <h4>Контакты</h4>
+                    <a href="tel:+79084936128">+7 (908) 493-61-28</a>
+                    <a href="mailto:info@autoservice.ru">info@autoservice.ru</a>
+                    <a href="#">г. Челябинск, ул. Монтажников, 8/5</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #333; padding-top: 20px;">© 2025 EMP Service. Все права защищены.</div>
+        </div>
+    </footer>
+
+</body>
+</html>
